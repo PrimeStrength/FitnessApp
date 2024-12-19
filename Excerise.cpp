@@ -3,24 +3,26 @@
 #include "Exercise.h"
 
 
+
 Exercise::Exercise(std::string name, Set sets, std::string data)
 	:m_name{ name }
-	, m_sets{ sets }
 	, m_metaData{ data }
+	, m_set{ sets }
 {
 };
 
-void Exercise::to_json(json& j, const Exercise& ex)
-{
-	j = json{{"name", ex.m_name},
-			 {"set", ex.m_sets},
-			{"metaData", ex.m_metaData }};
-}
+    // Define to_json for Exercise
+    void to_json(json& j, const Exercise& excs) {
+        j = json{
+            {"name", excs.m_name},
+            {"data", excs.m_metaData},
+            {"set", excs.m_set} // Address already has a to_json method
+        };
+    }
 
-void Exercise::from_json(const json& j, Exercise& ex) {
-    j.at("name").get_to(ex.m_name);
-    j.at("set").get_to(ex.m_sets);
-	j.at("metaData").get_to(ex.m_metaData);
-}
-
-
+    // Define from_json for Exercise
+    void from_json(const json& j, Exercise& excs) {
+        j.at("name").get_to(excs.m_name);
+        j.at("data").get_to(excs.m_metaData);
+        j.at("set").get_to(excs.m_set); // Address already has a from_json method
+    }
