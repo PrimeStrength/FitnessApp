@@ -24,7 +24,6 @@ public:
 	std::string getMetaData() const { return m_metaData; }
 	Set getSet() const { return m_set; }
 
-
 };
 
 
