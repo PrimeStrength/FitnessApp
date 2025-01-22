@@ -6,12 +6,13 @@
 
 using json = nlohmann::json;
 
+
 class Exercise {
 
 private:
     std::string m_name{};
     std::string m_metaData{};
-	Set m_set{};
+	std::vector<Set> m_sets{};
 public:
 
 	Exercise(std::string name, Set sets, std::string data="");
@@ -22,8 +23,7 @@ public:
 
 	std::string getName() const { return m_name; }
 	std::string getMetaData() const { return m_metaData; }
-	Set getSet() const { return m_set; }
+	std::vector<Set> getSets() const { return m_sets; }
 
 };
-
 
