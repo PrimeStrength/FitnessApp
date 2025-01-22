@@ -7,7 +7,7 @@
 Exercise::Exercise(std::string name, Set sets, std::string data)
 	:m_name{ name }
 	, m_metaData{ data }
-	, m_set{ sets }
+	, m_sets{ sets }
 {
 };
 
@@ -16,7 +16,7 @@ Exercise::Exercise(std::string name, Set sets, std::string data)
         j = json{
             {"name", excs.m_name},
             {"data", excs.m_metaData},
-            {"set", excs.m_set} // Address already has a to_json method
+            {"set", excs.m_sets} // Address already has a to_json method
         };
     }
 
@@ -24,5 +24,5 @@ Exercise::Exercise(std::string name, Set sets, std::string data)
     void from_json(const json& j, Exercise& excs) {
         j.at("name").get_to(excs.m_name);
         j.at("data").get_to(excs.m_metaData);
-        j.at("set").get_to(excs.m_set); // Address already has a from_json method
+        j.at("set").get_to(excs.m_sets); // Address already has a from_json method
     }
