@@ -1,6 +1,9 @@
 name: cppcheck-action
 on: [push]
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: cppcheck-test
@@ -16,9 +19,10 @@ jobs:
           skip_preprocessor: disable
           enable: all
           force_language: c++
+          output_file: ./reports/cppcheck_report.txt
 
       - name: publish report
         uses: mikeal/publish-to-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH_NAME: 'jgl-dev' # your branch name goes here
+          BRANCH_NAME: '${{ github.ref_name }}' # your branch name goes here
