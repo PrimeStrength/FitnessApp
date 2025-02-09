@@ -6,6 +6,7 @@
 #include "crow.h"
 #include "storageAPI.h"
 #include <format>
+#include "Session.h"
 
 using json = nlohmann::json;
 
@@ -31,9 +32,22 @@ std::string storeExercise(std::string s)
     return response;
 }
 
+
+std::string getSession()
+{
+
+	// Returns a hardcoded Session 
+    std::chrono::year_month_day ymd = std::chrono::year{ 2025 } / std::chrono::January / 27;
+    auto test = Session (ymd, { {"squat",{5,5}}, {"Deadlift", {3,3}} });
+
+    json j{ test };
+
+    return j.dump(4);
+}
+
 int main() {
  
-       crow::SimpleApp app; //define your crow application
+   crow::SimpleApp app; //define your crow application
 
     //define your endpoint at the root directory
     CROW_ROUTE(app, "/createExercise/<string>")([](std::string name){
@@ -41,7 +55,14 @@ int main() {
         return storeExercise(name);
 
     });
+    
+    CROW_ROUTE(app, "/getSession")([]() {
 
+        return getSession();
+
+	});
+
+ 
     //set the port, set the app to run on multiple threads, and run the app
     app.port(18080).multithreaded().run();
 
