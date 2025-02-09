@@ -1,36 +1,9 @@
-software/src/Set.h:19:11: information: --check-library: There is no matching configuration for function nlohmann::json::at() [checkLibraryFunction]
-        j.at("weight").get_to(set.weight);
-          ^
-software/src/Set.h:20:11: information: --check-library: There is no matching configuration for function nlohmann::json::at() [checkLibraryFunction]
-        j.at("reps").get_to(set.reps);
-          ^
-software/src/Excerise.cpp:25:11: information: --check-library: There is no matching configuration for function nlohmann::json::at() [checkLibraryFunction]
-        j.at("name").get_to(excs.m_name);
-          ^
-software/src/Excerise.cpp:26:11: information: --check-library: There is no matching configuration for function nlohmann::json::at() [checkLibraryFunction]
-        j.at("data").get_to(excs.m_metaData);
-          ^
-software/src/Excerise.cpp:27:11: information: --check-library: There is no matching configuration for function nlohmann::json::at() [checkLibraryFunction]
-        j.at("set").get_to(excs.m_sets); // Address already has a from_json method
-          ^
 software/src/Excerise.cpp:7:32: performance: Function parameter 'name' should be passed by const reference. [passedByValue]
 Exercise::Exercise(std::string name, Set sets, std::string data)
                                ^
 software/src/Excerise.cpp:7:60: performance: Function parameter 'data' should be passed by const reference. [passedByValue]
 Exercise::Exercise(std::string name, Set sets, std::string data)
                                                            ^
-software/src/Session.cpp:43:28: information: --check-library: There is no matching configuration for function std::invalid_argument() [checkLibraryFunction]
-                throw std::invalid_argument("Invalid date format");
-                           ^
-software/src/Session.cpp:79:7: information: --check-library: There is no matching configuration for function nlohmann::json::at() [checkLibraryFunction]
-    j.at("date").get_to(excs.m_date);
-      ^
-software/src/Session.cpp:80:7: information: --check-library: There is no matching configuration for function nlohmann::json::at() [checkLibraryFunction]
-    j.at("exercises").get_to(excs.m_exList);
-      ^
-software/src/Session.cpp:81:7: information: --check-library: There is no matching configuration for function nlohmann::json::at() [checkLibraryFunction]
-    j.at("name").get_to(excs.m_name);
-      ^
 software/src/Session.h:15:2: style: Class 'Session' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
  Session(std::chrono::year_month_day date, std::vector<Exercise> initList = { {} });
  ^
@@ -49,24 +22,9 @@ Session::Session(std::chrono::year_month_day date, std::string name , std::vecto
 software/src/Session.cpp:64:74: performance: Function parameter 'initList' should be passed by const reference. [passedByValue]
 Session::Session(std::chrono::year_month_day date, std::vector<Exercise> initList)
                                                                          ^
-software/src/main.cpp:19:20: information: --check-library: There is no matching configuration for function nlohmann::json::dump() [checkLibraryFunction]
-    std::cout << j.dump(4);
-                   ^
-software/src/main.cpp:26:26: information: --check-library: There is no matching configuration for function std::format() [checkLibraryFunction]
-        response += std::format("Exercise {} created", ex.getName());
-                         ^
-software/src/main.cpp:45:14: information: --check-library: There is no matching configuration for function nlohmann::json::dump() [checkLibraryFunction]
-    return j.dump(4);
-             ^
-software/src/main.cpp:67:9: information: --check-library: There is no matching configuration for function crow::SimpleApp::port() [checkLibraryFunction]
-    app.port(18080).multithreaded().run();
-        ^
 software/src/main.cpp:53:64: performance: Function parameter 'name' should be passed by const reference. [passedByValue]
     CROW_ROUTE(app, "/createExercise/<string>")([](std::string name){
                                                                ^
-software/src/storageAPI.cpp:39:16: information: --check-library: There is no matching configuration for function std::unexpected() [checkLibraryFunction]
-   return std::unexpected("Unable to add Exercise");
-               ^
 software/src/storageAPI.cpp:26:28: style:inconclusive: Function 'create' argument 1 names different: declaration 'js' definition 'ex'. [funcArgNamesDifferent]
  auto storage::create(json ex) -> std::expected<void,std::string>
                            ^
