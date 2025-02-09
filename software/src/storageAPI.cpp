@@ -2,7 +2,7 @@
 #include <iostream>
 #include <nlohmann/json.hpp>
 #include "storageAPI.h"
-#include "tl/expected.hpp"
+#include <expected>
 #include <fstream>
 
 using json = nlohmann::json;
@@ -23,7 +23,7 @@ using json = nlohmann::json;
 */
 
 
-	auto storage::create(json ex) -> tl::expected<void,std::string> 
+	auto storage::create(json ex) -> std::expected<void,std::string> 
 	{
 		try {
 
@@ -36,7 +36,7 @@ using json = nlohmann::json;
 
 		}
 		catch (const std::exception& e) {
-			return tl::unexpected("Unable to add Exercise");
+			return std::unexpected("Unable to add Exercise");
 		}
 
 		

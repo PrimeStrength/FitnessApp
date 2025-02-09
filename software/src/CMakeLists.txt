@@ -1,7 +1,7 @@
-
+# Dependencies ################################################################
 include(FetchContent)
 
-# Nlohmann
+# Nlohmann json
 FetchContent_Declare(
   nlohmann
   GIT_REPOSITORY https://github.com/nlohmann/json.git
@@ -17,8 +17,9 @@ FetchContent_Declare(
   GIT_TAG        asio-1-32-0
   GIT_SHALLOW    TRUE
 )
-set(ASIO_INCLUDE_DIR "${BUILD_DIR}/_deps/asio-src/asio/include/")
 FetchContent_MakeAvailable(asio)
+# CrowCPP complains if this variable is not set.
+set(ASIO_INCLUDE_DIR "${asio_SOURCE_DIR}/asio/include/")
 
 # CrowCPP
 FetchContent_Declare(
@@ -29,14 +30,20 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(crowcpp)
 
+# FitnessApp ##################################################################
 
+# Define the executable with its translation units
 add_executable(FitnessApp
   main.cpp
+  Excerise.cpp
+  Session.cpp
+  Set.cpp
+  storageAPI.cpp
 )
 
-target_compile_definitions(FitnessApp PRIVATE ASIO_STANDALONE)
-
+# Link libraries with FitnessApp
 target_link_libraries(FitnessApp
-  nlohmann_json::nlohmann_json
-  Crow::Crow
+  PRIVATE
+    nlohmann_json::nlohmann_json
+    Crow::Crow
 )
