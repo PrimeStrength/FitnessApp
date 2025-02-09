@@ -1,5 +1,8 @@
 name: cppcheck-action
-on: [push]
+on:
+  push:
+    paths:
+      - software/src/*
 
 permissions:
   contents: write
