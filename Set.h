@@ -1,8 +1,9 @@
 #pragma once
 #include <nlohmann/json.hpp>
-using json = nlohmann::json;
 
 struct Set {
+
+	using json = nlohmann::json;
 
     int weight{};
     int reps{} ;
