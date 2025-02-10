@@ -1,12 +1,3 @@
-processes.cpp:9:57: style:inconclusive: Function 'storeExercise' argument 1 names different: declaration 'exerciseName' definition 'name'. [funcArgNamesDifferent]
-std::string processes::storeExercise(const std::string& name)
-                                                        ^
-processes.h:6:47: note: Function 'storeExercise' argument 1 names different: declaration 'exerciseName' definition 'name'.
- std::string storeExercise(const std::string& exerciseName);
-                                              ^
-processes.cpp:9:57: note: Function 'storeExercise' argument 1 names different: declaration 'exerciseName' definition 'name'.
-std::string processes::storeExercise(const std::string& name)
-                                                        ^
 software/src/Excerise.cpp:5:32: performance: Function parameter 'name' should be passed by const reference. [passedByValue]
 Exercise::Exercise(std::string name, Set sets, std::string data)
                                ^
@@ -31,6 +22,15 @@ Session::Session(std::chrono::year_month_day date, std::string name , std::vecto
 software/src/Session.cpp:64:74: performance: Function parameter 'initList' should be passed by const reference. [passedByValue]
 Session::Session(std::chrono::year_month_day date, std::vector<Exercise> initList)
                                                                          ^
+software/src/processes.cpp:9:57: style:inconclusive: Function 'storeExercise' argument 1 names different: declaration 'exerciseName' definition 'name'. [funcArgNamesDifferent]
+std::string processes::storeExercise(const std::string& name)
+                                                        ^
+software/src/processes.h:6:47: note: Function 'storeExercise' argument 1 names different: declaration 'exerciseName' definition 'name'.
+ std::string storeExercise(const std::string& exerciseName);
+                                              ^
+software/src/processes.cpp:9:57: note: Function 'storeExercise' argument 1 names different: declaration 'exerciseName' definition 'name'.
+std::string processes::storeExercise(const std::string& name)
+                                                        ^
 software/src/storageAPI.cpp:26:28: style:inconclusive: Function 'create' argument 1 names different: declaration 'js' definition 'ex'. [funcArgNamesDifferent]
  auto storage::create(json ex) -> std::expected<void,std::string>
                            ^
