@@ -39,6 +39,7 @@ add_executable(FitnessApp
   Session.cpp
   Set.cpp
   storageAPI.cpp
+  processes.cpp
 )
 
 # Link libraries with FitnessApp
