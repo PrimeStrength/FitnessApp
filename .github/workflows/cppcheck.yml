@@ -1,0 +1,30 @@
+name: cppcheck-action
+on:
+  push:
+    paths:
+      - software/src/*
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: cppcheck-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: cppcheck
+        uses: deep5050/cppcheck-action@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN}}
+          skip_preprocessor: disable
+          enable: all
+          force_language: c++
+          output_file: ./reports/cppcheck_report.txt
+
+      - name: publish report
+        uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_NAME: '${{ github.ref_name }}' # your branch name goes here

@@ -1,0 +1,44 @@
+software/src/Excerise.cpp:7:32: performance: Function parameter 'name' should be passed by const reference. [passedByValue]
+Exercise::Exercise(std::string name, Set sets, std::string data)
+                               ^
+software/src/Excerise.cpp:7:60: performance: Function parameter 'data' should be passed by const reference. [passedByValue]
+Exercise::Exercise(std::string name, Set sets, std::string data)
+                                                           ^
+software/src/Session.h:15:2: style: Class 'Session' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+ Session(std::chrono::year_month_day date, std::vector<Exercise> initList = { {} });
+ ^
+software/src/Session.cpp:39:17: warning: %d in format string (no. 2) requires 'int *' but the argument type is 'unsigned int *'. [invalidScanfArgType_int]
+            if (sscanf(date_str.c_str(), "%d-%d-%d", &year, &month, &day) == 3) {
+                ^
+software/src/Session.cpp:39:17: warning: %d in format string (no. 3) requires 'int *' but the argument type is 'unsigned int *'. [invalidScanfArgType_int]
+            if (sscanf(date_str.c_str(), "%d-%d-%d", &year, &month, &day) == 3) {
+                ^
+software/src/Session.cpp:57:64: performance: Function parameter 'name' should be passed by const reference. [passedByValue]
+Session::Session(std::chrono::year_month_day date, std::string name , std::vector<Exercise> initList )
+                                                               ^
+software/src/Session.cpp:57:93: performance: Function parameter 'initList' should be passed by const reference. [passedByValue]
+Session::Session(std::chrono::year_month_day date, std::string name , std::vector<Exercise> initList )
+                                                                                            ^
+software/src/Session.cpp:64:74: performance: Function parameter 'initList' should be passed by const reference. [passedByValue]
+Session::Session(std::chrono::year_month_day date, std::vector<Exercise> initList)
+                                                                         ^
+software/src/main.cpp:53:64: performance: Function parameter 'name' should be passed by const reference. [passedByValue]
+    CROW_ROUTE(app, "/createExercise/<string>")([](std::string name){
+                                                               ^
+software/src/storageAPI.cpp:26:28: style:inconclusive: Function 'create' argument 1 names different: declaration 'js' definition 'ex'. [funcArgNamesDifferent]
+ auto storage::create(json ex) -> std::expected<void,std::string>
+                           ^
+software/src/storageAPI.h:8:50: note: Function 'create' argument 1 names different: declaration 'js' definition 'ex'.
+    std::expected<void, std::string> create(json js);
+                                                 ^
+software/src/storageAPI.cpp:26:28: note: Function 'create' argument 1 names different: declaration 'js' definition 'ex'.
+ auto storage::create(json ex) -> std::expected<void,std::string>
+                           ^
+software/src/Excerise.cpp:24:0: style: The function 'from_json' is never used. [unusedFunction]
+
+^
+software/src/Excerise.cpp:15:0: style: The function 'to_json' is never used. [unusedFunction]
+
+^
+nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
+

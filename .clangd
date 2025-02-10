@@ -1,0 +1,17 @@
+CompileFlags:
+  Add: [-Wall, -Wextra, -Wpedantic, -Wshadow, -Wnon-virtual-dtor, -Wold-style-cast, -Wcast-align, -Wunused, -Woverloaded-virtual, -Wconversion, -Wsign-conversion, -Wnull-dereference, -Wdouble-promotion, -Wformat=2, -Wimplicit-fallthrough, -Wduplicated-cond, -Wduplicated-branches, -Wlogical-op, -Wuseless-cast]
+
+Diagnostics:
+  ClangTidy:
+    Add: ["bugprone-*", "cert-*", "clang-analyzer-*", "cppcoreguidelines-*", "hicpp-*", "modernize-*", "performance-*", "portability-*", "readability-*", "thread-safety-*", "clangAnalyzer-alpha.security.*", "clangAnalyzer-alpha.core.*"]
+    Remove: ["modernize-use-trailing-return-type", "readability-identifier-length"]
+    CheckOptions:
+      readability-identifier-naming.VariableCase: lower_case
+      readability-identifier-naming.FunctionCase: lower_case
+      readability-identifier-naming.ClassCase: lower_case
+      readability-identifier-naming.StructCase: lower_case
+      readability-identifier-naming.EnumCase: lower_case
+      readability-identifier-naming.EnumConstantCase: lower_case
+      readability-identifier-naming.MacroDefinitionCase: lower_case
+      readability-identifier-naming.NamespaceCase: lower_case
+      readability-identifier-naming.GlobalConstantCase: lower_case
