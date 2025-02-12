@@ -7,43 +7,9 @@
 #include "storageAPI.h"
 #include <format>
 #include "Session.h"
+#include "processes.h"
 
 using json = nlohmann::json;
-
-
-std::string storeExercise(std::string s)
-{
-
-    auto ex = Exercise(s, {100,5});
-    json j = ex;
-    std::cout << j.dump(4);
-    
-    auto result = storage::create(j);
-    
-    std::string response{};
-
-    if (result.has_value()) {
-        response += std::format("Exercise {} created", ex.getName());
-    }
-    else {
-        response += "Unable to store Exercise: " + result.error();
-    }
-
-    return response;
-}
-
-
-std::string getSession()
-{
-
-	// Returns a hardcoded Session 
-    std::chrono::year_month_day ymd = std::chrono::year{ 2025 } / std::chrono::January / 27;
-    auto test = Session (ymd, { {"squat",{5,5}}, {"Deadlift", {3,3}} });
-
-    json j{ test };
-
-    return j.dump(4);
-}
 
 int main() {
  
@@ -52,13 +18,13 @@ int main() {
     //define your endpoint at the root directory
     CROW_ROUTE(app, "/createExercise/<string>")([](std::string name){
 
-        return storeExercise(name);
+        return processes::storeExercise(name);
 
     });
     
     CROW_ROUTE(app, "/getSession")([]() {
 
-        return getSession();
+        return processes::getSession();
 
 	});
 

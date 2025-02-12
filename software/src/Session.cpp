@@ -59,12 +59,12 @@ Session::Session(std::chrono::year_month_day date, std::string name , std::vecto
     , m_exList{ initList}
     , m_name{ name }
 {
-};
+}
 
 Session::Session(std::chrono::year_month_day date, std::vector<Exercise> initList)
     :Session{date ,dateToString(date), initList}
 {
-};
+}
 
 
 void to_json(json& j, const Session& session) {
