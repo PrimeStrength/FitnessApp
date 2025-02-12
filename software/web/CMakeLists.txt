@@ -34,8 +34,11 @@ add_custom_command(
   DEPENDS "${web_src};${public};${CMAKE_CURRENT_SOURCE_DIR}/index.html;${CMAKE_CURRENT_SOURCE_DIR}/package.json"
 )
 
-message(${CMAKE_CURRENT_BINARY_DIR}/dist/index.html)
-
-add_custom_target(web
+add_custom_target(web 
   DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/dist/index.html
+)
+
+install(
+  DIRECTORY ${web_build_dir}
+  DESTINATION var/FitnessApp/www
 )

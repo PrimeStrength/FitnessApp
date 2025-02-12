@@ -59,6 +59,16 @@ npm run start
 
 Any changes made to the web source code will be reflected instantly in your browser.
 
+# Packaging
+There is a `deb` target which will generate a package which can be installed on a Debian based system. This requires `dpkg` being installed on your system.
+
+``` shell
+cd build
+make deb
+```
+
+You can also use the `tar` target to generate a `.tar.gz` file. 
+
 # Scripts
 - `./scripts/build`: Builds the project
 - `./scripts/run`: Runs the FitnessApp backend

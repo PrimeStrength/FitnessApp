@@ -22,6 +22,8 @@ FetchContent_MakeAvailable(asio)
 set(ASIO_INCLUDE_DIR "${asio_SOURCE_DIR}/asio/include/")
 
 # CrowCPP
+## Don't package crow files.
+set(CROW_INSTALL OFF)
 FetchContent_Declare(
   crowcpp
   GIT_REPOSITORY https://github.com/crowcpp/crow.git
@@ -46,4 +48,9 @@ target_link_libraries(FitnessApp
   PRIVATE
     nlohmann_json::nlohmann_json
     Crow::Crow
+)
+
+install(
+  TARGETS FitnessApp
+  DESTINATION usr/bin
 )
