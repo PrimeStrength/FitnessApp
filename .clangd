@@ -4,7 +4,7 @@ CompileFlags:
 Diagnostics:
   ClangTidy:
     Add: ["bugprone-*", "cert-*", "clang-analyzer-*", "cppcoreguidelines-*", "hicpp-*", "modernize-*", "performance-*", "portability-*", "readability-*", "thread-safety-*", "clangAnalyzer-alpha.security.*", "clangAnalyzer-alpha.core.*"]
-    Remove: ["modernize-use-trailing-return-type", "readability-identifier-length"]
+    Remove: ["modernize-use-trailing-return-type", "readability-identifier-length", "modernize-use-nodiscard", "bugprone-easily-swappable-parameters"]
     CheckOptions:
       readability-identifier-naming.VariableCase: lower_case
       readability-identifier-naming.FunctionCase: lower_case

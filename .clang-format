@@ -9,6 +9,7 @@ BasedOnStyle: Microsoft
 ---
 Language: Cpp
 
+AccessModifierOffset: -4
 AlignAfterOpenBracket: AlwaysBreak
 AlignConsecutiveAssignments: false
 AlignConsecutiveDeclarations: false
