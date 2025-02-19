@@ -6,7 +6,6 @@
 #include "crow.h"
 #include "storageAPI.h"
 #include <format>
-#include "Session.h"
 #include "processes.h"
 
 using json = nlohmann::json;
