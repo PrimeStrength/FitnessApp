@@ -37,11 +37,12 @@ FetchContent_MakeAvailable(crowcpp)
 # Define the executable with its translation units
 add_executable(FitnessApp
   main.cpp
-  Excerise.cpp
-  Session.cpp
+  Exercise.cpp
+  Rep.cpp
   Set.cpp
   storageAPI.cpp
   processes.cpp
+  Workout.cpp
 )
 
 # Link libraries with FitnessApp
