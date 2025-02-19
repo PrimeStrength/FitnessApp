@@ -1,6 +1,15 @@
-software/src/Exercise.cpp:17:1: error: Unmatched '{'. Configuration: ''. [syntaxError]
-{
-^
+software/src/Exercise.cpp:11:29: style:inconclusive: Function 'Exercise' argument 2 names different: declaration 'mode' definition 'md'. [funcArgNamesDifferent]
+    std::optional<modality> md,
+                            ^
+software/src/Exercise.h:30:33: note: Function 'Exercise' argument 2 names different: declaration 'mode' definition 'md'.
+        std::optional<modality> mode = std::nullopt,
+                                ^
+software/src/Exercise.cpp:11:29: note: Function 'Exercise' argument 2 names different: declaration 'mode' definition 'md'.
+    std::optional<modality> md,
+                            ^
+software/src/Exercise.cpp:10:17: performance: Function parameter 'name' should be passed by const reference. [passedByValue]
+    std::string name,
+                ^
 software/src/Set.h:29:35: performance: Function parameter 'reps' should be passed by const reference. [passedByValue]
     void setReps(std::vector<Rep> reps){m_reps = reps;}
                                   ^
@@ -40,10 +49,10 @@ software/src/storageAPI.h:8:50: note: Function 'create' argument 1 names differe
 software/src/storageAPI.cpp:26:28: note: Function 'create' argument 1 names different: declaration 'js' definition 'ex'.
  auto storage::create(json ex) -> std::expected<void,std::string>
                            ^
-software/src/Rep.cpp:15:0: style: The function 'from_json' is never used. [unusedFunction]
+software/src/Exercise.cpp:29:0: style: The function 'from_json' is never used. [unusedFunction]
 
 ^
-software/src/Rep.cpp:6:0: style: The function 'to_json' is never used. [unusedFunction]
+software/src/Exercise.cpp:18:0: style: The function 'to_json' is never used. [unusedFunction]
 
 ^
 nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
