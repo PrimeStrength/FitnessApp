@@ -1,9 +1,9 @@
-software/src/Excerise.cpp:5:32: performance: Function parameter 'name' should be passed by const reference. [passedByValue]
-Exercise::Exercise(std::string name, Set sets, std::string data)
-                               ^
-software/src/Excerise.cpp:5:60: performance: Function parameter 'data' should be passed by const reference. [passedByValue]
-Exercise::Exercise(std::string name, Set sets, std::string data)
-                                                           ^
+software/src/Exercise.cpp:17:1: error: Unmatched '{'. Configuration: ''. [syntaxError]
+{
+^
+software/src/Set.h:29:35: performance: Function parameter 'reps' should be passed by const reference. [passedByValue]
+    void setReps(std::vector<Rep> reps){m_reps = reps;}
+                                  ^
 software/src/Workout.h:22:2: style: Class 'Workout' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
  Workout(std::chrono::year_month_day date, std::vector<Set> initList = { {} });
  ^
@@ -22,13 +22,13 @@ exercise::Workout::Workout(std::chrono::year_month_day date, std::string name , 
 software/src/Workout.cpp:63:79: performance: Function parameter 'initList' should be passed by const reference. [passedByValue]
 exercise::Workout::Workout(std::chrono::year_month_day date, std::vector<Set> initList)
                                                                               ^
-software/src/processes.cpp:9:57: style:inconclusive: Function 'storeExercise' argument 1 names different: declaration 'exerciseName' definition 'name'. [funcArgNamesDifferent]
+software/src/processes.cpp:8:57: style:inconclusive: Function 'storeExercise' argument 1 names different: declaration 'exerciseName' definition 'name'. [funcArgNamesDifferent]
 std::string processes::storeExercise(const std::string& name)
                                                         ^
 software/src/processes.h:6:47: note: Function 'storeExercise' argument 1 names different: declaration 'exerciseName' definition 'name'.
  std::string storeExercise(const std::string& exerciseName);
                                               ^
-software/src/processes.cpp:9:57: note: Function 'storeExercise' argument 1 names different: declaration 'exerciseName' definition 'name'.
+software/src/processes.cpp:8:57: note: Function 'storeExercise' argument 1 names different: declaration 'exerciseName' definition 'name'.
 std::string processes::storeExercise(const std::string& name)
                                                         ^
 software/src/storageAPI.cpp:26:28: style:inconclusive: Function 'create' argument 1 names different: declaration 'js' definition 'ex'. [funcArgNamesDifferent]
@@ -40,10 +40,10 @@ software/src/storageAPI.h:8:50: note: Function 'create' argument 1 names differe
 software/src/storageAPI.cpp:26:28: note: Function 'create' argument 1 names different: declaration 'js' definition 'ex'.
  auto storage::create(json ex) -> std::expected<void,std::string>
                            ^
-software/src/Excerise.cpp:20:0: style: The function 'from_json' is never used. [unusedFunction]
+software/src/Rep.cpp:15:0: style: The function 'from_json' is never used. [unusedFunction]
 
 ^
-software/src/Excerise.cpp:12:0: style: The function 'to_json' is never used. [unusedFunction]
+software/src/Rep.cpp:6:0: style: The function 'to_json' is never used. [unusedFunction]
 
 ^
 nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
