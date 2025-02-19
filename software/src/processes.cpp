@@ -3,7 +3,6 @@
 #include "Exercise.h"
 #include "storageAPI.h"
 #include "processes.h"
-#include "Session.h"
 
 
 std::string processes::storeExercise(const std::string& name)
