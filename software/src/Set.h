@@ -1,24 +1,41 @@
 #pragma once
 #include <nlohmann/json.hpp>
+//#include <initializer_list>
+#include <vector>
+#include "Exercise.h"
+#include "Rep.h"
 
-struct Set {
+namespace exercise
+{
 
+class Set 
+{
 	using json = nlohmann::json;
+public:
 
-    int weight{};
-    int reps{} ;
+    // set(std::initializer_list<Rep> reps): m_reps(reps) {} 
 
-    friend void to_json(json& j, const Set& set) {
-        j = json{
-            {"weight", set.weight},
-            {"reps", set.reps}
-        };
-    }
+    //Set(std::vector<Rep> reps) : m_reps{reps} {}
+    Set() = default;
 
-    // Define from_json for Address
-    friend void from_json(const json& j, Set& set) {
-        j.at("weight").get_to(set.weight);
-        j.at("reps").get_to(set.reps);
-    }
+    //std::vector<Rep> get_reps() const;
+    //void add_rep(Rep);
+
+    const std::vector<Rep>& getReps() const {return m_reps;}
+    const Exercise& getExercise() const { return m_exercise;}
+
+    std::vector<Rep>& getRepsNonConst() {return m_reps;}
+
+    void setReps(std::vector<Rep> reps){m_reps = reps;}
+
+private:
+    std::vector<Rep> m_reps{};
+    Exercise m_exercise{"No Name"};
+
 };
+    void to_json(json& j, const Set& set);
+    void from_json(const json& j,Set& set);
+
+
+}; //namespace exercise
 
