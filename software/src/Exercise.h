@@ -22,7 +22,7 @@ enum class modality : std::uint8_t
 
 class Exercise
 {
-    using json = nlohmann::json;
+using json = nlohmann::json;
 
 public:
     explicit Exercise(
@@ -49,7 +49,7 @@ public:
 private:
     std::string m_name{};
     std::optional<modality> m_md{};
-    std::optional<nlohmann::json> m_metadata{}; // Why nlohmann json ?
+    std::optional<json> m_metadata{}; // Why nlohmann json ?
     std::optional<std::string> m_descript{};// std::string m_metadata{};
 };
 
