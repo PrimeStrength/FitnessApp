@@ -2,7 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=c++,visualstudio,vcpkg
 
 
-build
+build/
 
 ### C++ ###
 # Prerequisites
