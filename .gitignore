@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/c++,visualstudio,vcpkg
 # Edit at https://www.toptal.com/developers/gitignore?templates=c++,visualstudio,vcpkg
 
+
+build
+
 ### C++ ###
 # Prerequisites
 *.d
@@ -420,6 +423,7 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # VS Code files for those working on multiple tools
+.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
